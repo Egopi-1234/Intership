@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Expiry Date Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛒 Food Expiry Date Predictor</h1>
+  </header>
+
+  <main class="container">
+    <section id="input-form">
+      <form id="expiryForm" autocomplete="off">
+        <label for="product">Product Name:</label>
+        <input
+          type="text"
+          id="product"
+          name="product"
+          placeholder="e.g. apple, biscuit"
+          aria-describedby="productHelp"
+          required
+        />
+        <small id="productHelp" class="help-text">Enter a product from our list</small>
+
+        <label for="mfg">Manufacture Date:</label>
+        <input type="date" id="mfg" name="mfg" required max="" />
+
+        <div class="button-group">
+          <button type="submit" id="predictBtn" aria-live="polite">
+            Predict
+          </button>
+          <button type="button" id="resetBtn">Reset</button>
+        </div>
+
+        <div id="result" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </section>
+
+    <section id="history" aria-label="Prediction History">
+      <h2>Prediction History</h2>
+      <table id="historyTable" role="table" aria-describedby="historyDesc">
+        <caption id="historyDesc" class="sr-only">List of recent expiry date predictions</caption>
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">MFG Date</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="faq" aria-label="Frequently Asked Questions">
+      <h2>FAQ</h2>
+
+      <article class="faq-item">
+        <button
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq1"
+          id="faq1-btn"
+          type="button"
+        >
+          How are expiry dates calculated?
+        </button>
+        <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-btn" hidden>
+          <p>
+            Expiry dates are calculated based on general shelf life information for common food products, considering storage conditions and product type.
+          </p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq2"
+          id="faq2-btn"
+          type="button"
+        >
+          What if my product is not listed?
+        </button>
+        <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-btn" hidden>
+          <p>
+            If your product is not found, try entering a similar item or contact us to update our product list.
+          </p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq3"
+          id="faq3-btn"
+          type="button"
+        >
+          Can I rely solely on these predictions?
+        </button>
+        <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-btn" hidden>
+          <p>
+            This tool provides general guidance. Always check food quality and storage practices for safety.
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 FoodSafeAI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
